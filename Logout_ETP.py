@@ -5,6 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException
+import datetime
 
 
 def click_exists_by_xpath(xpath):
@@ -13,7 +14,7 @@ def click_exists_by_xpath(xpath):
         driver.find_element_by_xpath(xpath)
     except NoSuchElementException:
         print('NoSuchElementException')
-        driver.get_screenshot_as_file('../Screenshots')
+        driver.get_screenshot_as_file('../Screenshots/xpath.png')
         return False
     else:
         print('Success'+xpath)
@@ -27,7 +28,8 @@ def check_exists_by_xpath(xpath):
         driver.find_element_by_xpath(xpath)
     except NoSuchElementException:
         print('NoSuchElementException'+xpath)
-        driver.get_screenshot_as_file('../Screenshots')
+        name=str(xpath)+'.png'
+        driver.get_screenshot_as_file('../Screenshots/name')
         return False
     else:
         print('Success'+xpath)
