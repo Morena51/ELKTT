@@ -13,6 +13,7 @@ def click_exists_by_xpath(xpath):
         driver.find_element_by_xpath(xpath)
     except NoSuchElementException:
         print('NoSuchElementException')
+        driver.get_screenshot_as_file('../Screenshots')
         return False
     else:
         print('Success'+xpath)
@@ -26,6 +27,7 @@ def check_exists_by_xpath(xpath):
         driver.find_element_by_xpath(xpath)
     except NoSuchElementException:
         print('NoSuchElementException'+xpath)
+        driver.get_screenshot_as_file('../Screenshots')
         return False
     else:
         print('Success'+xpath)
@@ -62,6 +64,7 @@ try:
     print('ЭТП работает')
 except AssertionError:
     print('Что-то не так с площадкой')
+    driver.get_screenshot_as_file('../Screenshots')
 
 # Заходим на площадку - Ссылка "Войти в систему"
 click_exists_by_xpath('//a[text()="Войти в систему"]')
